@@ -1,0 +1,21 @@
+<nav>
+  <div class="title"><b>POC</b> <span>inventory management </span></div>
+</nav>
+<main class="flex w-full">
+  <ul class="side-nav">
+    <li
+      [ngClass]="{ active: isActiveRoute(item.route) }"
+      class="side-nav__option"
+      *ngFor="let item of menuOptions"
+      [routerLink]="item.route"
+    >
+      {{ item.title }}
+    </li>
+  </ul>
+  <div class="main">
+    <span *ngIf="showErrorText">
+      please select an menu option from the left to proceed</span
+    >
+    <router-outlet></router-outlet>
+  </div>
+</main>

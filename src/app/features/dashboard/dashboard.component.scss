@@ -1,0 +1,56 @@
+@import "src/assets/styles/colors";
+nav {
+  position: relative;
+  height: 50px;
+  padding-left: 10px;
+  .title {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  b {
+    line-height: 1;
+    // line-height: 50px;
+    font-size: 1.8em;
+  }
+
+  border-bottom: 1px solid $grey;
+}
+main {
+  display: flex;
+  justify-content: flex-start;
+  width: 100vw;
+  // min-height: calc(100vh - 51px);
+  height: calc(100vh - 51px);
+  overflow: hidden;
+}
+.side-nav {
+  width: 200px;
+  border-right: 1px solid $grey;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-top: 20px;
+  &__option {
+    cursor: pointer;
+    height: 50px;
+    font-size: 1.3em;
+    padding: 5px 10px;
+  }
+  &__option:hover,
+  &__option.active {
+    color: $blue;
+  }
+  &__option:focus {
+    outline: none;
+  }
+}
+
+.main {
+  width: 100%;
+  height: calc(100vh - 51px);
+  overflow-y: auto;
+}

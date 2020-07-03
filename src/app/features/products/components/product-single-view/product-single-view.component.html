@@ -1,0 +1,56 @@
+<div>
+  <button (click)="closePanel()">x</button>
+  <div *ngIf="activeProduct">
+    <form class="form" action="" [formGroup]="productForm">
+      <h1>{{ isNewProduct ? "create new product" : "edit product" }}</h1>
+
+      <img [src]="getImageUrl()" alt="" />
+
+      <div class="group">
+        <label for="name">name</label>
+        <input formControlName="name" id="name" type="text" />
+      </div>
+
+      <div class="group">
+        <label for="imageId">image id</label>
+        <input
+          formControlName="imageId"
+          id="imageId"
+          type="number"
+          (change)="updateImage()"
+        />
+      </div>
+
+      <div class="group">
+        <label for="price">price</label>
+        <input formControlName="price" id="price" type="number" />
+      </div>
+      <div class="group">
+        <label for="stock">stock</label>
+        <input formControlName="stock" id="stock" type="number" />
+      </div>
+      <div class="group">
+        <label for="owner">owner</label>
+        <select formControlName="owner" id="owner" type="text">
+          <option *ngFor="let owner of owners" [value]="owner">
+            {{ owner }}
+          </option>
+        </select>
+      </div>
+      <div class="group">
+        <label for="category">category</label>
+        <input formControlName="category" id="category" type="text" />
+      </div>
+    </form>
+
+    <div class="group buttons">
+      <ng-container *ngIf="isNewProduct; else editBtn">
+        <button (click)="create()">create</button>
+      </ng-container>
+      <ng-template #editBtn>
+        <button (click)="updateCurrent()">update values</button>
+        <button (click)="deleteCurrent()">delete</button>
+      </ng-template>
+    </div>
+  </div>
+</div>

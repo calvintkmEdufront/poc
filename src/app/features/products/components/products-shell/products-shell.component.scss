@@ -1,0 +1,12 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 5px;
+  justify-content: center;
+  height: calc(100vh - 73px);
+  overflow: auto;
+}
+:host {
+  display: block;
+  position: relative;
+}

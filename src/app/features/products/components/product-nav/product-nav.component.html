@@ -1,0 +1,23 @@
+<div class="nav">
+  <input
+    #inputEl
+    (input)="updateSearch()"
+    [value]="searchTerm"
+    type="text"
+    placeholder="search by name or category"
+  />
+
+  <select
+    #sortEl
+    [value]="activeSortOption"
+    name=""
+    id=""
+    (change)="updateSort()"
+  >
+    <option *ngFor="let option of sortOptions" [value]="option">{{
+      option
+    }}</option>
+  </select>
+
+  <button (click)="createNewProduct()">create new</button>
+</div>

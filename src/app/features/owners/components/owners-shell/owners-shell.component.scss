@@ -1,0 +1,21 @@
+td {
+  padding: 15px;
+}
+
+.content {
+  width: 100%;
+  position: relative;
+  height: calc(100vh - 51px);
+  overflow: scroll;
+  h1 {
+    text-align: center;
+    margin: 20px auto;
+  }
+  table {
+    margin: 20px auto;
+    //     position: absolute;
+    //     left: 50%;
+    //     top: 50%;
+    //     transform: translate(-50%, -50%);
+  }
+}

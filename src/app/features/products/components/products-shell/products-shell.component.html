@@ -1,0 +1,34 @@
+<poc-product-nav
+  [searchTerm]="searchTerm$ | async"
+  (poc-search-change)="updateFilteredResults($event)"
+  (poc-sort-change)="updateSortOption($event)"
+  (poc-create)="createNewProduct()"
+  [activeSortOption]="activeSortOption$ | async"
+  [sortOptions]="sortOptions"
+></poc-product-nav>
+<div class="body">
+  <div *ngIf="filteredProducts$ | async as products">
+    <div class="cards">
+      <poc-product-card
+        *ngFor="let product of products"
+        [product]="product"
+        (click)="setActiveProduct(product)"
+      >
+        <!-- product.productId {{ item.productId }} -->
+      </poc-product-card>
+    </div>
+  </div>
+
+  <div *ngIf="noValidFilteredResult" class="cards">
+    <h1>No results matching your search</h1>
+  </div>
+
+  <poc-product-single-view
+    (poc-create)="updateStoreWithNewProduct($event)"
+    (poc-close)="resetProductId()"
+    (poc-delete)="deleteProduct($event)"
+    (poc-update)="udpateProduct($event)"
+    [owners]="owners"
+    [activeProduct]="activeProduct$ | async"
+  ></poc-product-single-view>
+</div>

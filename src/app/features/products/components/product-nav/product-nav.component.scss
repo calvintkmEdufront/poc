@@ -1,0 +1,10 @@
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  input {
+    width: 200px;
+  }
+  & > * {
+    margin: 0 10px;
+  }
+}

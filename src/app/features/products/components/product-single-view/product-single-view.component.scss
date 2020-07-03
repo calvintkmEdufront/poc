@@ -1,0 +1,43 @@
+@import "src/assets/styles/colors.scss";
+:host {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  overflow: hidden;
+  background: white;
+  height: 100%;
+  &.active {
+    width: 400px;
+    border-left: 1px solid $grey;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0;
+  width: 100%;
+  label {
+    width: 150px;
+  }
+  input,
+  select {
+    width: 100%;
+  }
+}
+
+.buttons {
+  width: 100%;
+  justify-content: space-around;
+}

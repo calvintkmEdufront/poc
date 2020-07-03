@@ -1,0 +1,32 @@
+<!-- <button>create new owner</button> -->
+
+<div class="content">
+  <h1>owner details</h1>
+  <table>
+    <tr>
+      <th>name</th>
+      <th>age</th>
+      <th>gender</th>
+      <th>company</th>
+      <th>email</th>
+      <th>phone</th>
+    </tr>
+    <tr *ngFor="let owner of owners$ | async">
+      <td>{{ owner.name }}</td>
+      <td>{{ owner.age }}</td>
+      <td>{{ owner.gender }}</td>
+      <td>{{ owner.company }}</td>
+      <td>{{ owner.email }}</td>
+      <td>{{ owner.phone }}</td>
+      <td><button (click)="setActiveOwnerId(owner)">view more</button></td>
+    </tr>
+  </table>
+
+  <poc-owner-single-view
+    (poc-create)="updateStoreWithNewOwner($event)"
+    (poc-close)="resetOwnerId()"
+    (poc-delete)="deleteOwner($event)"
+    (poc-update)="udpateOwner($event)"
+    [activeOwner]="activeOwner$ | async"
+  ></poc-owner-single-view>
+</div>
